@@ -23,6 +23,9 @@ Berikan notes terkait perubahan yang Anda lakukan
 Si dany & fikri ganti namabranch jadi frontend
 <br>
 Si rifqy & ihsan ganti namabranch jadi backend
-<br> 
+<br>
+testing rapael 
+<br>
 Kalau mau ngambil updatean terbaru dari main branch githubku, pake ini:
 `git pull upstream main`
+
