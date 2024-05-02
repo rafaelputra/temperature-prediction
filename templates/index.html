@@ -5,8 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
-<body>
+<body class="bg-cyan-400">
+    <nav class="p5 bg-white shadow-lg md:flex md:items-center md:justify-between">
+        <div class="flex justify-between items-center">
+            <span class="h-10 inline text-2x1 font-medium cursor-pointer">
+                Temperature Prediction
+            </span>
+            <span class="text-3x1 cursor pointer md:hidden block mx-2">
+                <ion-icon name="menu" onclick="Menu(this)"></ion-icon>
+            </span>
+        </div>
+        <ul class="md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-white w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400x] transition-all ease-in duration-500">
+            <li class="mx-4 my-6 md:my-o"> 
+            <a href="#" class="text-x1 hover:bg-gray-125 hover:text-cyan-500 duration-500 rounded-md px-3 py-2 text-lg font-medium">Home</a>
+            </li>
+            <li class="mx-4 my-6 md:my-o">
+                <a href="#" class="text-x1 hover:bg-gray-125 hover:text-cyan-500 duration-500 rounded-md px-3 py-2 text-lg font-medium">About Us</a>
+            </li>
+            <li class="mx-4 my-6 md:my-o">
+                <a href="#" class="text-x1 hover:bg-gray-125 hover:text-cyan-500 duration-500 rounded-md px-3 py-2 text-lg font-medium">Analisis</a>
+            </li>
+        </ul> 
+    </nav>
+
+    <script>
+        function Menu(e){
+            let list = document.querySelector('ul');
+            e.name === 'menu' ? (e.name = "close",list.classList.add('top-[80x]'),list.classList.add('opacity-100')) : (e.name ="menu",list.classList.remove('top-[80x]'),list.classList.remove('opacity-100'))
+        }
+    </script>
   <h1>Temperature Prediction</h1>
     <form method="post">
         <label for="tanggal">Tanggal (Format: MM-DD-YYYY):</label><br>
