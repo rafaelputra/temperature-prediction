@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Jawa</title>
+    <title>Input Tanggal</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -16,10 +16,12 @@
           <a href="index.html">Temperature Prediction</a>
           </h1>
         </span>
+        
         <span class="text-3xl cursor-pointer mx-2 md:hidden block">
           <ion-icon name="menu" onclick="Menu(this)"></ion-icon>
         </span>
       </div>
+  
       <ul class="md:flex md:items-center md:static absolute md:z-auto rounded-md py-2 md:py-0 md:pl-0 md:opacity-100 opacity-0 top-[-200px] bg-[#F0EBE3]">
         <li class="mx-3 my-2 md:my-0">
           <a href="playground.html" class="text-xl hover:text-pink-600 duration-500">Playground</a>
@@ -35,38 +37,21 @@
         e.name === 'menu' ? (e.name = "close",list.classList.add('top-[70px]'), list.classList.add('right-4'), list.classList.add('opacity-100')) :( e.name = "menu" ,list.classList.remove('top-[70px]'), list.classList.remove('left-4'), list.classList.remove('opacity-100'))
       }
     </script>
-<article
-class="mt-4 mx-4 hover:animate-background rounded-xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 p-0.5 shadow-xl transition hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s]"
->
-<div class="rounded-[10px] bg-white p-4 sm:p-6">
-    <h3 class="mt-0.5 text-lg font-medium text-gray-900">
-      27°C
-    </h3>
-</div>
-<div class="rounded-[10px] bg-white p-4 sm:p-6">
-  <h3 class="mt-0.5 text-lg font-medium text-gray-900">
-    27°C
-  </h3>
-</div>
-<div class="rounded-[10px] bg-white p-4 sm:p-6">
-  <h3 class="mt-0.5 text-lg font-medium text-gray-900">
-    27°C
-  </h3>
-</div>
-</article>
-  <!-- <h1 class="mx-64">Temperature Prediction</h1>
-    <form method="post">
-        <label for="tanggal class="mx-56">Tanggal (Format: MM-DD-YYYY):</label><br>
-        <input type="date" id="tanggal" name="tanggal" class="max-w-lg mt-2 mx-[300px] border border-slate-200 rounded-xl p-2 shadow-md"><br><br>
-        <button type="submit" value="Submit" class="mx-[350px] max-w-pytpytlg mb-2 border border-slate-400
-        rounded-[25px] p-[5px] shadow-md bg-pink-500 hover:bg-pink-600 active:bg-pink-700
-        ring-slate-400 shadow-lg border-2">Submit</button>
-    </form>
-    {% if hasil %}
-    <p class="max-w-64 mx-64 my-2 border border-slate-200 rounded-xl p-2 shadow-lg
-    bg-yellow-500">{{ hasil }}</p>
-    {% endif %}
-  -->
+    <article class="p-2 mt-4 mx-4 rounded-xl bg-[#F0EBE3] shadow">
+      <h1 class="text-2xl"><b>About</b></h1>
+      <h2><b>Nama Kelompok:</b></h2>
+      <ul class="p-4">
+        <li class="list-decimal">Rafael Putra A. (2304130094)</li>
+        <li class="list-decimal">Rifqy Tsaqif A. (2304130106)</li>
+        <li class="list-decimal">Fikri Achmad F. (2304130116)</li>
+        <li class="list-decimal">Muhammad Dany H. (2304130124)</li>
+        <li class="list-decimal">M. Khoirul Ihsan (2304130131)</li>
+      </ul>
+      <p>Proyek statistika kami menggunakan model <i>Ridge Regression</i> untuk memprediksi suhu berdasarkan dataset BMKG dari tahun 2017 hingga 2023.</p>
+      <p><i>Ridge Regression</i> adalah ..</p>
+      <p>Cara kerja <i>ridge regression</i></p>
+      <p></p>
+    </article>
 </body>
 </html>
 
