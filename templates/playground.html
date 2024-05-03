@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Input Tanggal</title>
+    <title>Playground</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -9,10 +9,10 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body class="bg-[#F6F5F2]">
-    <nav class="p-2 mt-2 mx-2 rounded-xl bg-[#F0EBE3] shadow md:flex md:items-center md:justify-between">
+    <nav class="p-2 mt-2 mx-2 rounded-xl bg-[#F3D0D7] shadow md:flex md:items-center md:justify-between">
       <div class="flex justify-between items-center ">
         <span class="text-2xl font-[Poppins] cursor-pointer">
-          <h1 class="h-10 inline ml-2" style="font-family: Arial">
+          <h1 class="h-10 inline ml-2 " style="font-family: Arial">
           <a href="/">Temperature Prediction</a>
           </h1>
         </span>
@@ -21,7 +21,7 @@
         </span>
       </div>
   
-      <ul class="md:flex md:items-center md:static absolute md:z-auto rounded-md py-2 md:py-0 md:pl-0 md:opacity-100 opacity-0 top-[-200px] bg-[#F0EBE3]">
+      <ul class="md:flex md:items-center md:static absolute md:z-auto rounded-md py-2 md:py-0 md:pl-0 md:opacity-100 opacity-0 top-[-200px] bg-[#F3D0D7]">
         <li class="mx-3 my-2 md:my-0">
           <a href="/playground" class="text-xl hover:text-pink-600 duration-500">Playground</a>
         </li>
@@ -38,40 +38,40 @@
     </script>
     <h1 class="mt-4 text-3xl text-center">Paramater <i>Ridge Regression</i></h1>
     <br>
-    <form class="md:text-center w-full max-w-lg mx-auto">
+    <br>
+    <form class="md:text-center w-full max-w-lg items-center mx-auto">
       <div class="flex flex-wrap items-center -mx-3 mb-6">
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
             Suhu Minimal (°C)
           </label>
-          <input class="appearance-none block w-[250px] bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="number">
+          <input class="appearance-none block w-[250px] bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white text-center items-center" id="grid-first-name" type="number">
         </div>
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
             Suhu Maksimal (°C)
           </label>
-          <input class="appearance-none block align-center w-[250px] bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="number">
+          <input class="appearance-none block align-center w-[250px] bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white text-center items-center" id="grid-first-name" type="number">
         </div>
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
             Suhu Rata-Rata (°C)
           </label>
-          <input class="appearance-none block align-center w-[250px] bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="number">
+          <input class="appearance-none block align-center w-[250px] bg-gray-200 text-center items-center text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="number">
         </div>
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
             Kelembapan (%)
           </label>
-          <input class="appearance-none block align-center w-[250px] bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="number" min="0" max="100">
+          <input class="appearance-none block align-center text-center items-center w-[250px] bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="number" min="0" max="100">
         </div>
-      <div class="md:flex m-auto flex items-center md:items-center">
-        <div class="md:w-1/3"></div>
-        <div class="md:w-2/3">
-          <button class="mx-3 shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded text-center" type="button">
-            Submit
-          </button>
+        <div class="w-full relative align-left text-left items-left md:w-1/2 px-3 mb-6 md:mb-0">
+          <div class="md:w-1/3"></div>
+            <button class="block w-[100px] bg-[#FFEFEF] text-black-500 rounded-xl py-3 px-4 mb-3 type="button">
+              Submit
+            </button>
+          </div>
         </div>
-      </div>
     </form>
 </body>
 </html>
