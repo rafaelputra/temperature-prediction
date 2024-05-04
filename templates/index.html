@@ -8,8 +8,8 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
-<body class="bg-[#F6F5F2]">
-    <nav class="p-2 mt-2 mx-2 rounded-xl bg-[#F3D0D7] shadow md:flex md:items-center md:justify-between">
+<body class="bg-[#EFD6B1]">
+    <nav class="p-2 mt-2 mx-2 rounded-xl bg-[#00A2C4] shadow-xl md:flex md:items-center md:justify-between">
       <div class="flex justify-between items-center ">
         <span class="text-2xl font-[Poppins] cursor-pointer">
           <h1 class="h-10 inline ml-2" style="font-family: Arial">
@@ -20,7 +20,7 @@
           <ion-icon name="menu" onclick="Menu(this)"></ion-icon>
         </span>
       </div>
-      <ul class="md:flex md:items-center md:static absolute md:z-auto rounded-md py-2 md:py-0 md:pl-0 md:opacity-100 opacity-0 top-[-200px] bg-[#F3D0D7]">
+      <ul class="md:flex md:items-center md:static shadow-2xl absolute md:z-auto rounded-md py-2 md:py-0 md:pl-0 md:opacity-100 opacity-0 top-[-200px] bg-[#00A2C4]">
         <li class="mx-3 my-2 md:my-0">
           <a href="/playground" class="text-xl hover:text-pink-600 duration-500">Playground</a>
         </li>
@@ -36,23 +36,14 @@
       }
     </script>
 <article
-class="mt-4 mx-4 hover:animate-background rounded-xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 p-0.5 shadow-xl transition hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s]"
+class="md:mx-4 mx-4 md:mt-2 mt-2 flex flex-col justify-between items-center"
 >
-<div class="rounded-[10px] bg-white p-4 sm:p-6">
-    <h3 class="mt-0.5 text-lg font-medium text-gray-900">
+<div class="mt-40 md:mt-32 flex items-center justify-between shadow-lg w-40 md:w-96 h-40 md:h-64 bg-[#FFF7F6] rounded-[10px]  p-4 sm:p-6">
+    <h3 class="flex text-center justify-between md:text-6xl text-3xl mx-auto font-medium text-gray-900">
       27°C
     </h3>
 </div>
-<div class="rounded-[10px] bg-white p-4 sm:p-6">
-  <h3 class="mt-0.5 text-lg font-medium text-gray-900">
-    27°C
-  </h3>
-</div>
-<div class="rounded-[10px] bg-white p-4 sm:p-6">
-  <h3 class="mt-0.5 text-lg font-medium text-gray-900">
-    27°C
-  </h3>
-</div>
+
 </article>
   <!-- <h1 class="mx-64">Temperature Prediction</h1>
     <form method="post">
