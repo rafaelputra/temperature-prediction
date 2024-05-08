@@ -5,7 +5,7 @@ from sklearn.linear_model import Ridge
 from datetime import datetime
 
 # Import dataset serta mengatur index pada kolom Tanggal
-df = pd.read_csv('../dataset/cuaca_2017_2023.csv',index_col='Tanggal')
+df = pd.read_csv('https://drive.google.com/uc?export=view&id=1SbNCFBEHhLQHEzXlpAlRYhBOjwvcUNKi',index_col='Tanggal')
 
 # Mengubah tipe data kolom Tanggal menjadi datetime
 df.index=pd.to_datetime(df.index)
