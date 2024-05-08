@@ -1,12 +1,14 @@
 from flask import Flask, render_template, request
 import pandas as pd
 import numpy as np
+from ml.function import *
 
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def main():
-    return render_template('index.html')
+    tn_value = prediksi_besok['Tn'].iloc[0]
+    return render_template('index.html', tn=tn_value)
 
 @app.route('/about')
 def about():

@@ -202,3 +202,6 @@ predrhavg = int(round(predrhavg.item()))
 # Membuat DataFrame baru untuk menampung nilai prediksi besok
 prediksi_besok = pd.DataFrame([[tanggal, predtn, predtx, predtavg, predrhavg]], columns=['tanggal', 'Tn', 'Tx', 'Tavg', 'RH_avg'])
 print(prediksi_besok)
+
+tn_value = prediksi_besok['Tn'].iloc[0]
+print(tn_value)
