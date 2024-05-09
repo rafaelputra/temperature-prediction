@@ -7,8 +7,14 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def main():
-    tn_value = prediksi_besok['Tn'].iloc[0]
-    return render_template('index.html', tn=tn_value)
+    tavg_h = rn['Tavg'].iloc[0].round().astype(int)
+    tavg_h1 = prediksi_besok['Tavg'].iloc[0]
+    tavg_h2 = predictions['Tavg'].iloc[0]
+    tavg_h3 = predictions['Tavg'].iloc[1]
+    tavg_h4 = predictions['Tavg'].iloc[2]
+    tavg_h5 = predictions['Tavg'].iloc[3]
+    tavg_h6 = predictions['Tavg'].iloc[4]
+    return render_template('index.html', tavg_h=tavg_h, tavg_h1=tavg_h1, tavg_h2=tavg_h2, tavg_h3=tavg_h3, tavg_h4=tavg_h4, tavg_h5=tavg_h5, tavg_h6=tavg_h6)
 
 @app.route('/about')
 def about():

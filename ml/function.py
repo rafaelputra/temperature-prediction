@@ -201,7 +201,33 @@ predrhavg = int(round(predrhavg.item()))
 
 # Membuat DataFrame baru untuk menampung nilai prediksi besok
 prediksi_besok = pd.DataFrame([[tanggal, predtn, predtx, predtavg, predrhavg]], columns=['tanggal', 'Tn', 'Tx', 'Tavg', 'RH_avg'])
-print(prediksi_besok)
 
-tn_value = prediksi_besok['Tn'].iloc[0]
-print(tn_value)
+tavg_h1 = prediksi_besok['Tavg'].iloc[0]
+tavg_h = rn['Tavg'].iloc[0]
+
+# Create an empty DataFrame to store all predictions
+predictions = pd.DataFrame(columns=['Tn', 'Tx', 'Tavg', 'RH_avg'])
+
+for _ in range(5):
+    predtn = tn.predict(rn)[0]
+    predtx = tx.predict(rn)[0]
+    predtavg = tavg.predict(rn)[0]
+    predrhavg = rhavg.predict(rn)[0]
+
+    # Create a DataFrame from the predictions
+    pred_df = pd.DataFrame([[predtn , predtx , predtavg , predrhavg]], columns=['Tn', 'Tx', 'Tavg', 'RH_avg'])
+
+    # Concatenate the 'predictions' DataFrame with the new 'pred_df'
+    predictions = pd.concat([predictions, pred_df], ignore_index=True)
+
+    # Update 'rn' DataFrame with the latest predictions for the next iteration
+    rn = pred_df.copy()
+
+predictions = predictions.round().astype(int)
+tavg_h2 = predictions['Tavg'].iloc[0]
+tavg_h3 = predictions['Tavg'].iloc[1]
+tavg_h4 = predictions['Tavg'].iloc[2]
+tavg_h5 = predictions['Tavg'].iloc[3]
+tavg_h6 = predictions['Tavg'].iloc[4]
+print(rn)
+print(prediksi_besok)
