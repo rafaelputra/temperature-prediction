@@ -7,8 +7,18 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .fixed-bottom-left {
+            position: fixed;
+            left: -10vh;
+            top: 50vh;
+        }
+      }
+    </style>
 </head>
-<body class="bg-[#ECF9FF]">
+<body class="bg-[#ECF9FF] custom-cursor">
     <nav class="p-2 mt-4 mx-4 rounded-xl bg-[#F0FEFF] shadow-2xl md:flex md:items-center md:justify-between">
       <div class="flex justify-between items-center ">
         <span class="text-2xl cursor-pointer">
@@ -35,9 +45,7 @@
         e.name === 'menu' ? (e.name = "close",list.classList.add('top-[70px]'), list.classList.add('right-4'), list.classList.add('opacity-100')) :( e.name = "menu" ,list.classList.remove('top-[70px]'), list.classList.remove('left-4'), list.classList.remove('opacity-100'))
       }
     </script>
-<article
-class="md:mx-4 mx-4 md:mt-2 mt-2 md:pb-8 pb-16 flex flex-wrap justify-center items-center "
->
+<article class="md:mx-4 mx-4 md:mt-2 mt-2 md:pb-8 pb-16 flex flex-wrap justify-center items-center">
   <div class="flex flex-col z-50 items-start justify-between shadow-xl bg-[#D4E8FF] w-40 md:w-48 h-40 md:h-48 rounded-[10px]">
     <div class="flex z-50 items-center justify-between bg-[#D4E8FF] w-40 md:w-48 h-40 md:h-48 md:text-4xl text-3xl rounded-[10px]">
       <h3 class="text-center justify-between mx-auto font-medium text-gray-900">
@@ -46,10 +54,10 @@ class="md:mx-4 mx-4 md:mt-2 mt-2 md:pb-8 pb-16 flex flex-wrap justify-center ite
     </div>
     <div class="flex flex-col z-50 shadow-inner items-center justify-between bg-[#E2EFFF] w-40 md:w-48 h-12 md:h-16 md:text-lg text-base rounded-[10px]"> 
       <h3 class="text-center justify-between mx-auto font-medium text-gray-900">
-        Senin
+        {{ hari_h }}
       </h3>
       <h3 class="text-center justify-between mx-auto font-medium text-gray-900">
-        10-05
+        {{ tanggal_h }}
       </h3>
     </div>
   </div>
@@ -61,15 +69,15 @@ class="md:mx-4 mx-4 md:mt-2 mt-2 md:pb-8 pb-16 flex flex-wrap justify-center ite
     </div>
     <div class="flex flex-col z-50 shadow-inner items-center justify-between bg-[#E2EFFF] w-36 md:w-44 h-11 md:h-14 md:text-lg text-base rounded-[10px]"> 
       <h3 class="text-center justify-between mx-auto font-medium text-gray-900">
-        Senin
+        {{ hari_h1 }}
       </h3>
       <h3 class="text-center justify-between mx-auto font-medium text-gray-900">
-        10-05
+        {{ tanggal_h1 }}
       </h3>
     </div>
   </div>
-
 </article>
+<img src="{{ url_for('static', filename='images/anime1.png') }}" alt="ANIMEEKK" class="fixed left-[-10vh] top-[50vh]">
 <article
 class="md:mx- mx-8 md:mt-2 mt-2 flex flex-wrap justify-center items-center "
 >
@@ -81,7 +89,7 @@ class="md:mx- mx-8 md:mt-2 mt-2 flex flex-wrap justify-center items-center "
     </div>
     <div class="flex z-50 shadow-inner items-center justify-between bg-[#E2EFFF] w-24 md:w-28 h-8 md:h-10 md:text-lg text-base rounded-[10px]">
       <h3 class="text-center items-center justify-between mx-auto font-medium text-gray-900">
-        10-05
+        {{ hari_h2 }}
       </h3>
     </div>
   </div>
@@ -93,7 +101,7 @@ class="md:mx- mx-8 md:mt-2 mt-2 flex flex-wrap justify-center items-center "
     </div>
     <div class="flex z-50 shadow-inner items-center justify-between bg-[#E2EFFF] w-24 md:w-28 h-8 md:h-10 md:text-lg text-base rounded-[10px]">
       <h3 class="text-center items-center justify-between mx-auto font-medium text-gray-900">
-        10-05
+        {{ hari_h3 }}
       </h3>
     </div>
   </div>
@@ -105,7 +113,7 @@ class="md:mx- mx-8 md:mt-2 mt-2 flex flex-wrap justify-center items-center "
     </div>
     <div class="flex z-50 shadow-inner items-center justify-between bg-[#E2EFFF] w-24 md:w-28 h-8 md:h-10 md:text-lg text-base rounded-[10px]">
       <h3 class="text-center items-center justify-between mx-auto font-medium text-gray-900">
-        10-05
+        {{ hari_h4 }}
       </h3>
     </div>
   </div>
@@ -117,7 +125,7 @@ class="md:mx- mx-8 md:mt-2 mt-2 flex flex-wrap justify-center items-center "
     </div>
     <div class="flex z-50 shadow-inner items-center justify-between bg-[#E2EFFF] w-24 md:w-28 h-8 md:h-10 md:text-lg text-base rounded-[10px]">
       <h3 class="text-center items-center justify-between mx-auto font-medium text-gray-900">
-        10-05
+        {{ hari_h5 }}
       </h3>
     </div>
   </div>
@@ -129,7 +137,7 @@ class="md:mx- mx-8 md:mt-2 mt-2 flex flex-wrap justify-center items-center "
     </div>
     <div class="flex z-50 shadow-inner items-center justify-between bg-[#E2EFFF] w-24 md:w-28 h-8 md:h-10 md:text-lg text-base rounded-[10px]">
       <h3 class="text-center items-center justify-between mx-auto font-medium text-gray-900">
-        10-05
+        {{ hari_h6 }}
       </h3>
     </div>
   </div>

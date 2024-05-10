@@ -40,38 +40,38 @@
     <h1 class="mt-4 text-3xl text-center">Paramater <i>Ridge Regression</i></h1>
     <br>
     <br>
-    <form class="md:text-center w-full max-w-lg items-center mx-auto">
+    <form class="md:text-center w-full max-w-lg items-center mx-auto" method="POST">
       <div class="flex flex-wrap items-center -mx-3 mb-6">
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
             Suhu Minimal (°C)
           </label>
-          <input class="appearance-none shadow-inner block w-[250px] bg-[#D4E8FF] text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-[#E2EFFF] text-center items-center" id="grid-first-name" autofocus type="number" required>
+          <input class="appearance-none shadow-inner block w-[250px] bg-[#D4E8FF] text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-[#E2EFFF] text-center items-center" id="grid-first-name" autofocus type="number" name="suhu_min" required>
         </div>
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
             Suhu Maksimal (°C)
           </label>
-          <input class="appearance-none shadow-inner block align-center w-[250px] bg-[#D4E8FF] text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-[#E2EFFF] text-center items-center" id="grid-first-name" type="number" required>
+          <input class="appearance-none shadow-inner block align-center w-[250px] bg-[#D4E8FF] text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-[#E2EFFF] text-center items-center" id="grid-first-name" type="number" name="suhu_max" required>
         </div>
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
             Suhu Rata-Rata (°C)
           </label>
-          <input class="appearance-none shadow-inner block align-center w-[250px] bg-[#D4E8FF] text-center items-center text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-[#E2EFFF]" id="grid-first-name" required type="number">
+          <input class="appearance-none shadow-inner block align-center w-[250px] bg-[#D4E8FF] text-center items-center text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-[#E2EFFF]" id="grid-first-name" name="suhu_avg" required type="number">
         </div>
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
             Kelembapan (%)
           </label>
-          <input class="appearance-none shadow-inner block align-center text-center items-center w-[250px] bg-[#D4E8FF] text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-[#E2EFFF]" id="grid-first-name" type="number" min="0" max="100" required>
+          <input class="appearance-none shadow-inner block align-center text-center items-center w-[250px] bg-[#D4E8FF] text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-[#E2EFFF]" id="grid-first-name" type="number" min="0" max="100" name="kelembapan" required>
           <!-- Pesan error -->
           <p class="text-red-500 text-xs italic hidden" x-show="document.getElementById('grid-first-name').value < 0 || document.getElementById('grid-first-name').value > 100">
         </div>
         
         <div class="w-full relative align-left text-left items-left md:w-1/2 px-3 mb-6 md:mb-0">
           <div class="md:w-1/3"></div>
-            <button class="block w-[100px] bg-[#93EFF5] text-black-500 rounded-xl py-3 px-4 mb-3 type="button"  >
+            <button class="block w-[100px] bg-[#93EFF5] text-black-500 rounded-xl py-3 px-4 mb-3 type="button" name="submit">
               Submit
             </button>
           </div>

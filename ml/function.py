@@ -202,32 +202,48 @@ predrhavg = int(round(predrhavg.item()))
 # Membuat DataFrame baru untuk menampung nilai prediksi besok
 prediksi_besok = pd.DataFrame([[tanggal, predtn, predtx, predtavg, predrhavg]], columns=['tanggal', 'Tn', 'Tx', 'Tavg', 'RH_avg'])
 
-tavg_h1 = prediksi_besok['Tavg'].iloc[0]
-tavg_h = rn['Tavg'].iloc[0]
+tavg_h = inTavg
 
-# Create an empty DataFrame to store all predictions
-predictions = pd.DataFrame(columns=['Tn', 'Tx', 'Tavg', 'RH_avg'])
+print(tavg_h)
+
+tavg_h1 = prediksi_besok['Tavg'].iloc[0]
+
+print(tavg_h1)
+
+# Menginisialisasi DataFrame untuk menyimpan prediksi 5 hari ke depan
+predictions_5_days = pd.DataFrame(columns=['Tn', 'Tx', 'Tavg', 'RH_avg'])
+
+# Menggunakan prediksi besok sebagai input untuk prediksi hari-hari berikutnya
+rn = prediksi_besok[['Tn', 'Tx', 'Tavg', 'RH_avg']].copy()
 
 for _ in range(5):
-    predtn = tn.predict(rn)[0]
-    predtx = tx.predict(rn)[0]
-    predtavg = tavg.predict(rn)[0]
-    predrhavg = rhavg.predict(rn)[0]
+    # Memprediksi variabel suhu minimum, maksimum, rata-rata, dan rata-rata kelembaban
+    predtn = tn.predict(rn[['Tn', 'Tx', 'Tavg', 'RH_avg']])[0]
+    predtx = tx.predict(rn[['Tn', 'Tx', 'Tavg', 'RH_avg']])[0]
+    predtavg = tavg.predict(rn[['Tn', 'Tx', 'Tavg', 'RH_avg']])[0]
+    predrhavg = rhavg.predict(rn[['Tn', 'Tx', 'Tavg', 'RH_avg']])[0]
 
-    # Create a DataFrame from the predictions
-    pred_df = pd.DataFrame([[predtn , predtx , predtavg , predrhavg]], columns=['Tn', 'Tx', 'Tavg', 'RH_avg'])
+    # Menambahkan prediksi hari berikutnya ke dalam DataFrame
+    new_prediction = pd.DataFrame({
+                                   'Tn': [predtn],
+                                   'Tx': [predtx],
+                                   'Tavg': [predtavg],
+                                   'RH_avg': [predrhavg]})
+    
+    # Memperbarui nilai rn untuk prediksi berikutnya
+    rn = new_prediction.copy()
+    
+    # Menambahkan prediksi ke DataFrame prediksi_5_hari jika sudah tidak kosong
+    if not predictions_5_days.empty:
+        predictions_5_days = pd.concat([predictions_5_days, new_prediction], ignore_index=True)
+    else:
+        predictions_5_days = new_prediction.copy()
 
-    # Concatenate the 'predictions' DataFrame with the new 'pred_df'
-    predictions = pd.concat([predictions, pred_df], ignore_index=True)
+# Mengonversi nilai suhu menjadi integer
+predictions_5_days['Tn'] = predictions_5_days['Tn'].astype(int)
+predictions_5_days['Tx'] = predictions_5_days['Tx'].astype(int)
+predictions_5_days['Tavg'] = predictions_5_days['Tavg'].astype(int)
+predictions_5_days['RH_avg'] = predictions_5_days['RH_avg'].astype(int)
 
-    # Update 'rn' DataFrame with the latest predictions for the next iteration
-    rn = pred_df.copy()
-
-predictions = predictions.round().astype(int)
-tavg_h2 = predictions['Tavg'].iloc[0]
-tavg_h3 = predictions['Tavg'].iloc[1]
-tavg_h4 = predictions['Tavg'].iloc[2]
-tavg_h5 = predictions['Tavg'].iloc[3]
-tavg_h6 = predictions['Tavg'].iloc[4]
-print(rn)
-print(prediksi_besok)
+# Menampilkan prediksi 5 hari ke depan
+print(predictions_5_days)
