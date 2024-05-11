@@ -240,10 +240,10 @@ for _ in range(5):
         predictions_5_days = new_prediction.copy()
 
 # Mengonversi nilai suhu menjadi integer
-predictions_5_days['Tn'] = predictions_5_days['Tn'].astype(int)
-predictions_5_days['Tx'] = predictions_5_days['Tx'].astype(int)
-predictions_5_days['Tavg'] = predictions_5_days['Tavg'].astype(int)
-predictions_5_days['RH_avg'] = predictions_5_days['RH_avg'].astype(int)
+predictions_5_days['Tn'] = predictions_5_days['Tn'].round().astype(int)
+predictions_5_days['Tx'] = predictions_5_days['Tx'].round().astype(int)
+predictions_5_days['Tavg'] = predictions_5_days['Tavg'].round().astype(int)
+predictions_5_days['RH_avg'] = predictions_5_days['RH_avg'].round().astype(int)
 
 # Menampilkan prediksi 5 hari ke depan
 print(predictions_5_days)
