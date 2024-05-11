@@ -52,7 +52,13 @@ def main():
 
     # Render template HTML dan kirimkan data hari
     tavgh = inTavg
+
     tavgh1 = prediksi_besok['Tavg'].iloc[0]
+    tavgh2 = predictions_5_days['Tavg'].iloc[0]
+    tavgh3 = predictions_5_days['Tavg'].iloc[1]
+    tavgh4 = predictions_5_days['Tavg'].iloc[2]
+    tavgh5 = predictions_5_days['Tavg'].iloc[3]
+    tavgh6 = predictions_5_days['Tavg'].iloc[4]
     return render_template('index.html', 
                            hari_h=hari_h,
                            hari_h1=hari_h1,
@@ -69,7 +75,12 @@ def main():
                            tanggal_h5=tanggal_h5,
                            tanggal_h6=tanggal_h6,
                            tavg_h=tavgh,
-                           tavg_h1=tavgh1)
+                           tavg_h1=tavgh1,
+                           tavg_h2=tavgh2,
+                           tavg_h3=tavgh3,
+                           tavg_h4=tavgh4,
+                           tavg_h5=tavgh5,
+                           tavg_h6=tavgh6,)
 
 @app.route('/about')
 def about():
@@ -77,6 +88,9 @@ def about():
     
 @app.route('/playground')
 def playground():
+    
+    
+    
     return render_template('playground.html')
 
 if __name__ == '__main__':
