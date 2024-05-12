@@ -92,6 +92,36 @@
   </form>
 
 
+  <div style="display: flex; justify-content: center; align-items: center;">
+    <div
+      class="flex flex-col z-0 mt-4 md:mt-6 mb-6 md:mb-10 items-start justify-start shadow-lg bg-[#D4E8FF] w-48 md:w-56 h-25 md:h-50 md:text-xl text-l rounded-[10px]">
+      <div
+        class="flex z-50 items-start justify-start bg-[#D4E8FF] w-48 md:w-56 h-25 md:h-50 md:text-xl text-lg rounded-[10px]">
+
+        <h3 class="text-left justify-start mx-auto font-medium text-gray-900"
+          style="margin: 30px 40px;  font-size: 2em;">
+          {{ tavg_out }}°C
+        </h3>
+      </div>
+
+      <div>
+        <h3 class="text-center justify-between mx-auto font-medium text-gray-900" style="margin: 10px 20px;">
+          {{ tx_out }}°C
+        </h3>
+        <h3 class="text-center justify-between mx-auto font-medium text-gray-900" style="margin: 10px 20px;">
+          {{ tn_out }}°C
+        </h3>
+      </div>
+      <div
+        class="flex z-50 shadow-inner items-start justify-start bg-[#E2EFFF] w-48 md:w-56 h-8 md:h-10 md:text-lg text-base rounded-[10px]">
+        <h3 class="text-left items-start justify-start mx-auto font-medium text-gray-900">
+          besok
+        </h3>
+      </div>
+    </div>
+  </div>
+
+
 </body>
 
 </html>

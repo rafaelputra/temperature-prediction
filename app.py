@@ -86,12 +86,27 @@ def main():
 def about():
     return render_template('about.html')
     
-@app.route('/playground')
+@app.route('/playground', methods=['GET', 'POST'])
 def playground():
-    
-    
-    
-    return render_template('playground.html')
+    if request.method == 'POST':
+        suhu_min = int(request.form['suhu_min'])
+        suhu_max = int(request.form['suhu_max'])
+        suhu_avg = int(request.form['suhu_avg'])
+        kelembapan = int(request.form['kelembapan'])
+
+        plygrnd = pd.DataFrame([[suhu_min, suhu_max, suhu_avg, kelembapan]], columns=['Tn', 'Tx', 'Tavg', 'RH_avg'])
+        pptn = int(tn.predict(plygrnd).round())
+        pptx = int(tx.predict(plygrnd).round())
+        pptavg = int(tavg.predict(plygrnd).round())
+        pprhavg = int(rhavg.predict(plygrnd).round())
+
+        return render_template('outplay.html',
+                               tavg_out = pptavg,
+                               tx_out = pptx,
+                               tn_out = pptn,)
+    else:
+        return render_template('playground.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=6969)
