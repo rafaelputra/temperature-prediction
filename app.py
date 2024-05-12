@@ -95,10 +95,10 @@ def playground():
         kelembapan = int(request.form['kelembapan'])
 
         plygrnd = pd.DataFrame([[suhu_min, suhu_max, suhu_avg, kelembapan]], columns=['Tn', 'Tx', 'Tavg', 'RH_avg'])
-        pptn = int(tn.predict(plygrnd).round())
-        pptx = int(tx.predict(plygrnd).round())
-        pptavg = int(tavg.predict(plygrnd).round())
-        pprhavg = int(rhavg.predict(plygrnd).round())
+        pptn = int(tn.predict(plygrnd).round(1))
+        pptx = int(tx.predict(plygrnd).round(1))
+        pptavg = int(tavg.predict(plygrnd).round(1))
+        pprhavg = int(rhavg.predict(plygrnd).round(1))
 
         return render_template('outplay.html',
                                tavg_out = pptavg,
