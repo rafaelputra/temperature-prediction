@@ -142,29 +142,27 @@
     </div>
   </form>
   <div style="display: flex; justify-content: center; align-items: center;">
-    <div
-      class="flex flex-col z-0 mt-4 md:mt-6 mb-6 md:mb-10 items-start justify-start bg-opacity-50 bg-white/40 backdrop-blur-lg shadow-lg bg-[#D4E8FF] w-48 md:w-56 h-25 md:h-50 md:text-xl text-l rounded-[10px]">
+    <div class="flex flex-col z-0 mt-4 md:mt-6 mb-6 md:mb-10 items-center justify-between bg-opacity-50 bg-white/40 backdrop-blur-lg shadow-lg bg-[#D4E8FF] w-48 md:w-56 h-25 md:h-50 md:text-xl text-l rounded-[10px]">
 
-      <h3 class="text-left justify-start mx-auto font-medium text-white"
-        style="margin: 1px 20px;  font-size: 60px; margin-top : 30px;margin-bottom: 5px; margin-left : 30px">
+      <h3 class="text-center pt:3 justify-between mx-auto font-medium text-white text-3xl">
         {{ tavg_out }}°C
       </h3>
 
-
-      <div style="margin: 10px 20px;">
-        <img src="static\images\up.png" alt="max" width="20" height="20" style="display: inline; margin-right : -5px; ">
+      <div class="flex flex-wrap text-center justify-between">
+        <ion-icon name="arrow-up-outline" class="mt-1 text-white"></ion-icon>
+        <p class="text-s mr-2 justify-between mx-auto font-medium text-white"
+          style="font-size: 20px"> {{ tx_out }}°C
+        </p>
+        <ion-icon name="arrow-down-outline" class=" md:mt-1 mt-2 text-white"></ion-icon>
         <p class="text-center justify-between mx-auto font-medium text-white"
-          style="margin: 0px; font-size: 20px; display: inline;"> {{ tx_out }}°C</p>
-        <img src="static\images\down.png" alt="min" width="20" height="20"
-          style="display: inline; margin-right : -5px; margin-left : 5px;">
-        <p class="text-center justify-between mx-auto font-medium text-white"
-          style="font-size: 20px; display: inline; margin-right: 0px;">{{ tn_out }}°C</p>
+          style="font-size: 20px">{{ tn_out }}°C
+        </p>
       </div>
 
       <div
         class="flex z-50 shadow-inner items-start justify-start bg-[#E2EFFF] w-48 md:w-56 h-8 md:h-10 md:text-lg text-base rounded-[10px]">
-        <h3 class="text-left items-start justify-start mx-auto font-medium text-gray">
-          besok
+        <h3 class="text-left items-start justify-start mx-auto font-medium text-gray mt-1">
+          Sesuk
         </h3>
       </div>
     </div>
