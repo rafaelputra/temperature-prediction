@@ -6,53 +6,68 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    .glassmorphism-container {
+      backdrop-filter: blur(100px);
+      /* Adjust the blur effect as needed */
+      background-color: rgba(208, 208, 208, 0.374);
+      /* Adjust the background color and opacity as needed */
+      border-radius: 10px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      /* Adjust shadow as needed */
+    }
+
+
+
+
+
     .animated-background {
-      background: linear-gradient(331deg, #8cf2f1, #3fb8ee, #eea43f, #3fd7ee);
+      background: linear-gradient(313deg, #ffe2a9, #6ce7f9, #aae1ff, #0086f0);
       background-size: 800% 800%;
-      -webkit-animation: AnimationName 46s ease infinite;
-      -moz-animation: AnimationName 46s ease infinite;
-      animation: AnimationName 46s ease infinite;
+
+      -webkit-animation: sunsetscheme 37s ease infinite;
+      -moz-animation: sunsetscheme 37s ease infinite;
+      animation: sunsetscheme 37s ease infinite;
     }
 
-    @-webkit-keyframes AnimationName {
+    @-webkit-keyframes sunsetscheme {
       0% {
-        background-position: 46% 0%
+        background-position: 0% 7%
       }
 
       50% {
-        background-position: 55% 100%
+        background-position: 100% 94%
       }
 
       100% {
-        background-position: 46% 0%
+        background-position: 0% 7%
       }
     }
 
-    @-moz-keyframes AnimationName {
+    @-moz-keyframes sunsetscheme {
       0% {
-        background-position: 46% 0%
+        background-position: 0% 7%
       }
 
       50% {
-        background-position: 55% 100%
+        background-position: 100% 94%
       }
 
       100% {
-        background-position: 46% 0%
+        background-position: 0% 7%
       }
     }
 
-    @keyframes AnimationName {
+    @keyframes sunsetscheme {
       0% {
-        background-position: 46% 0%
+        background-position: 0% 7%
       }
 
       50% {
-        background-position: 55% 100%
+        background-position: 100% 94%
       }
 
       100% {
-        background-position: 46% 0%
+        background-position: 0% 7%
       }
     }
   </style>
@@ -94,6 +109,7 @@
   <h1 class="mt-4 text-3xl text-center">Paramater <i>Ridge Regression</i></h1>
   <br>
   <br>
+
   <form class="md:text-center w-full max-w-lg items-center mx-auto" method="POST" action="{{ url_for('playground') }}">
     <div class="flex flex-wrap items-center -mx-3 mb-6">
       <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -101,7 +117,7 @@
           Suhu Minimal (°C)
         </label>
         <input
-          class="appearance-none shadow-inner block w-[250px] bg-[#D4E8FF] text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-[#E2EFFF] text-center items-center"
+          class="glassmorphism-container shadow-inner  block w-[250px] text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:shadow-lg text-center items-center"
           id="grid-first-name" autofocus type="number" name="suhu_min" required>
       </div>
       <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -109,7 +125,7 @@
           Suhu Maksimal (°C)
         </label>
         <input
-          class="appearance-none shadow-inner block align-center w-[250px] bg-[#D4E8FF] text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-[#E2EFFF] text-center items-center"
+          class="glassmorphism-container shadow-inner block align-center w-[250px] text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:shadow-lg text-center items-center"
           id="grid-first-name" type="number" name="suhu_max" required>
       </div>
       <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -117,7 +133,7 @@
           Suhu Rata-Rata (°C)
         </label>
         <input
-          class="appearance-none shadow-inner block align-center w-[250px] bg-[#D4E8FF] text-center items-center text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-[#E2EFFF]"
+          class="glassmorphism-container shadow-inner block align-center w-[250px] text-center items-center text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:shadow-lg"
           id="grid-first-name" name="suhu_avg" required type="number">
       </div>
       <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -125,7 +141,7 @@
           Kelembapan (%)
         </label>
         <input
-          class="appearance-none shadow-inner block align-center text-center items-center w-[250px] bg-[#D4E8FF] text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-[#E2EFFF]"
+          class="glassmorphism-container shadow-inner block align-center text-center items-center w-[250px] text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:shadow-lg"
           id="grid-first-name" type="number" min="0" max="100" name="kelembapan" required>
         <!-- Pesan error -->
         <p class="text-red-500 text-xs italic hidden"
@@ -134,15 +150,17 @@
 
       <div class="w-full relative align-left text-left items-left md:w-1/2 px-3 mb-6 md:mb-0">
         <div class="md:w-1/3"></div>
-        <button class="block w-[100px] bg-[#93EFF5] text-black-500 rounded-xl py-3 px-4 mb-3 type=" button"
-          name="submit">
+        <button
+          class="glassmorphism-container shadow-lg block w-[100px] text-black-500 rounded-xl py-3 px-4 mb-3 hover:shadow-inner type="
+          button" name="submit">
           Submit
         </button>
       </div>
     </div>
   </form>
   <div style="display: flex; justify-content: center; align-items: center;">
-    <div class="flex flex-col z-0 mt-4 md:mt-6 mb-6 md:mb-10 items-center justify-between bg-opacity-50 bg-white/40 backdrop-blur-lg shadow-lg bg-[#D4E8FF] w-48 md:w-56 h-25 md:h-50 md:text-xl text-l rounded-[10px]">
+    <div
+      class="glassmorphism-container flex flex-col z-0 mt-4 md:mt-6 mb-6 md:mb-10 items-center justify-between shadow-2xl w-48 md:w-56 h-25 md:h-50 md:text-xl text-l rounded-[10px]">
 
       <h3 class="text-center pt:3 justify-between mx-auto font-medium text-white text-3xl">
         {{ tavg_out }}°C
@@ -150,17 +168,15 @@
 
       <div class="flex flex-wrap text-center justify-between">
         <ion-icon name="arrow-up-outline" class="mt-1 text-white"></ion-icon>
-        <p class="text-s mr-2 justify-between mx-auto font-medium text-white"
-          style="font-size: 20px"> {{ tx_out }}°C
+        <p class="text-s mr-2 justify-between mx-auto font-medium text-white" style="font-size: 20px"> {{ tx_out }}°C
         </p>
         <ion-icon name="arrow-down-outline" class=" md:mt-1 mt-2 text-white"></ion-icon>
-        <p class="text-center justify-between mx-auto font-medium text-white"
-          style="font-size: 20px">{{ tn_out }}°C
+        <p class="text-center justify-between mx-auto font-medium text-white" style="font-size: 20px">{{ tn_out }}°C
         </p>
       </div>
 
       <div
-        class="flex z-50 shadow-inner items-start justify-start bg-[#E2EFFF] w-48 md:w-56 h-8 md:h-10 md:text-lg text-base rounded-[10px]">
+        class="flex z-50 shadow-inner items-start justify-start bg-opacity-10 bg-white/40 backdrop-blur-lg  w-48 md:w-56 h-8 md:h-10 md:text-lg text-base rounded-[10px]">
         <h3 class="text-left items-start justify-start mx-auto font-medium text-gray mt-1">
           Sesuk
         </h3>
