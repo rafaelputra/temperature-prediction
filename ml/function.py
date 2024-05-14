@@ -248,4 +248,3 @@ predictions_5_days['RH_avg'] = predictions_5_days['RH_avg'].round().astype(int)
 
 # Menampilkan prediksi 5 hari ke depan
 print(predictions_5_days)
-pritn(p)
