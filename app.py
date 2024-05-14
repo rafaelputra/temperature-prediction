@@ -59,6 +59,14 @@ def main():
     tavgh5 = predictions_5_days['Tavg'].iloc[3]
     tavgh6 = predictions_5_days['Tavg'].iloc[4]
 
+    """"
+    !!!
+    !!!
+    NOTE: TAMBAHIN TMIN H+2 DST!!
+          DAN TMAX H+2 DST !!!
+    !!!
+    !!!
+    """
     tmin_h = inTmin
     tmin_h1 = prediksi_besok['Tn'].iloc[0]
     #tmin_h2 = 
@@ -66,6 +74,14 @@ def main():
     #tmin_h4 = 
     #tmin_h5 = 
     #tmin_h6 = 
+    tmax_h = inTmax
+    tmax_h1 = prediksi_besok['Tx'].iloc[0]
+    #tmax_h2 = 
+    #tmax_h3 = 
+    #tmax_h4 = 
+    #tmax_h5 = 
+    #tmax_h6 = 
+    
 
     return render_template('index.html', 
                            hari_h=hari_h,
@@ -85,12 +101,14 @@ def main():
                            tavg_h=tavgh,
                            tavg_h1=tavgh1,
                            tavg_h2=tavgh2,
-                           tavg_h3=tavgh3,
+                           tavg_h3=tavgh3,  
                            tavg_h4=tavgh4,
                            tavg_h5=tavgh5,
                            tavg_h6=tavgh6,
                            tmin_h=tmin_h,
-                           tmin_h1=tmin_h1)
+                           tmin_h1=tmin_h1,
+                           tmax_h=tmax_h,
+                           tmax_h1=tmax_h1)
                            #tmin_h2=tmin_h2,
                            #tmin_h3=tmin_h3,
                            #tmin_h4=tmin_h4,
