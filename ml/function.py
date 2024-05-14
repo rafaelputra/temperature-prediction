@@ -202,6 +202,15 @@ predrhavg = int(round(predrhavg.item()))
 # Membuat DataFrame baru untuk menampung nilai prediksi besok
 prediksi_besok = pd.DataFrame([[tanggal, predtn, predtx, predtavg, predrhavg]], columns=['tanggal', 'Tn', 'Tx', 'Tavg', 'RH_avg'])
 
+#menampilkan hari ini
+tavg_h = inTavg
+print(tavg_h)
+
+#menampilkan prediksi besok
+tavg_h1 = prediksi_besok['Tavg'].iloc[0]
+print(tavg_h1)
+
+
 # Menginisialisasi DataFrame untuk menyimpan prediksi 5 hari ke depan
 predictions_5_days = pd.DataFrame(columns=['Tn', 'Tx', 'Tavg', 'RH_avg'])
 
@@ -224,7 +233,6 @@ for _ in range(5):
     
     # Memperbarui nilai rn untuk prediksi berikutnya
     rn = new_prediction.copy()
- 
     
     # Menambahkan prediksi ke DataFrame prediksi_5_hari jika sudah tidak kosong
     if not predictions_5_days.empty:
@@ -233,11 +241,16 @@ for _ in range(5):
         predictions_5_days = new_prediction.copy()
 
 # Mengonversi nilai suhu menjadi integer
-predictions_5_days['Tn'] = predictions_5_days['Tn'].round().astype(int)
-predictions_5_days['Tx'] = predictions_5_days['Tx'].round().astype(int)
-predictions_5_days['Tavg'] = predictions_5_days['Tavg'].round(1)
-predictions_5_days['RH_avg'] = predictions_5_days['RH_avg'].round().astype(int)
+predictions_5_days['Tn'] = predictions_5_days['Tn'].astype(int)
+predictions_5_days['Tx'] = predictions_5_days['Tx'].astype(int)
+predictions_5_days['Tavg'] = predictions_5_days['Tavg'].astype(int)
+predictions_5_days['RH_avg'] = predictions_5_days['RH_avg'].astype(int)
+
+
 
 # Menampilkan prediksi 5 hari ke depan
-print(predictions_5_days)
-pritn(p)
+tavg_h2 = predictions_5_days['Tavg'].iloc[0]
+tavg_h3 = predictions_5_days['Tavg'].iloc[1]
+tavg_h4 = predictions_5_days['Tavg'].iloc[2]
+tavg_h5 = predictions_5_days['Tavg'].iloc[3]
+tavg_h6 = predictions_5_days['Tavg'].iloc[4]
