@@ -129,6 +129,43 @@ maksimum = backtesttx(parameter, tx, predictors)
 rata = backtesttavg(parameter, tavg, predictors)
 humiditas = backtestrh(parameter, rhavg, predictors)
 
+# import required modules
+import firebase_admin
+from datetime import date
+from firebase_admin import db, credentials
+
+# authenticate to firebase
+cred = credentials.Certificate("temprh-36591-firebase-adminsdk-6qoor-9ae6252178.json")
+firebase_admin.initialize_app(cred, {"databaseURL": "https://temprh-36591-default-rtdb.asia-southeast1.firebasedatabase.app/"})
+
+inTmin = db.reference('/DHT_11/Stats/TempMin')
+inTmax = db.reference('/DHT_11/Stats/TempMax')
+inTavg = db.reference('/DHT_11/Stats/TempAverage')
+inRhavg = db.reference('/DHT_11/Stats/HumAverage')
+tanggal = date.today()
+# Read data from the database
+data = ref.get()
+
+# Print the retrieved data
+print(data)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""
 # Import API BMKG untuk wilayah Semarang
 bmkg_api = pd.read_json('https://cuaca-gempa-rest-api.vercel.app/weather/jawa-tengah/semarang')
 
@@ -177,6 +214,7 @@ inTmax = int(inTmax)
 inTmin = bmkg_api['data']['params'][4]['times'][0]['celcius']
 inTmin = inTmin.replace("C", "")
 inTmin = int(inTmin)
+"""
 
 # Semua parameter dari BMKG diubah menjadi DataFrame untuk membuat prediksi hari ini
 predictor_hari_ini = pd.DataFrame({'date': [tanggal],
@@ -243,8 +281,8 @@ for _ in range(5):
 # Mengonversi nilai suhu menjadi integer
 predictions_5_days['Tn'] = predictions_5_days['Tn'].round().astype(int)
 predictions_5_days['Tx'] = predictions_5_days['Tx'].round().astype(int)
-predictions_5_days['Tavg'] = predictions_5_days['Tavg'].round(1)
+predictions_5_days['Tavg'] = predictions_5_days['Tavg'].round().astype(int)
 predictions_5_days['RH_avg'] = predictions_5_days['RH_avg'].round().astype(int)
 
 # Menampilkan prediksi 5 hari ke depan
-print(predictions_5_days)
+print(rn)
