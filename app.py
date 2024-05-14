@@ -17,12 +17,11 @@ mapping_hari = {
     'Sunday': 'Minggu'
 }
 
+indonesia = pytz.timezone('Asia/Jakarta')
+sekarang = datetime.now(indonesia)
+
 @app.route('/', methods=['GET', 'POST'])
 def main():
-    indonesia = pytz.timezone('Asia/Jakarta')
-    # Dapatkan tanggal dan waktu sekarang dalam zona waktu Indonesia
-    sekarang = datetime.now(indonesia)
-    # Buat list untuk menyimpan data hari dan tanggal untuk 7 hari ke depan
     data_hari = []
     for i in range(7):
         # Hitung tanggal untuk hari ke-i dari sekarang
@@ -59,6 +58,15 @@ def main():
     tavgh4 = predictions_5_days['Tavg'].iloc[2]
     tavgh5 = predictions_5_days['Tavg'].iloc[3]
     tavgh6 = predictions_5_days['Tavg'].iloc[4]
+
+    tmin_h = inTmin
+    tmin_h1 = prediksi_besok['Tn'].iloc[0]
+    #tmin_h2 = 
+    #tmin_h3 = 
+    #tmin_h4 = 
+    #tmin_h5 = 
+    #tmin_h6 = 
+
     return render_template('index.html', 
                            hari_h=hari_h,
                            hari_h1=hari_h1,
@@ -80,7 +88,14 @@ def main():
                            tavg_h3=tavgh3,
                            tavg_h4=tavgh4,
                            tavg_h5=tavgh5,
-                           tavg_h6=tavgh6,)
+                           tavg_h6=tavgh6,
+                           tmin_h=tmin_h,
+                           tmin_h1=tmin_h1)
+                           #tmin_h2=tmin_h2,
+                           #tmin_h3=tmin_h3,
+                           #tmin_h4=tmin_h4,
+                           #tmin_h5=tmin_h5,
+                           #tmin_h6=tmin_h6
 
 @app.route('/about')
 def about():
@@ -88,7 +103,7 @@ def about():
     
 @app.route('/playground', methods=['GET', 'POST'])
 def playground():
-    if request.method == 'POST':
+    if request.method == 'POST':   
         suhu_min = int(request.form['suhu_min'])
         suhu_max = int(request.form['suhu_max'])
         suhu_avg = int(request.form['suhu_avg'])
@@ -100,10 +115,14 @@ def playground():
         pptavg = int(tavg.predict(plygrnd).round())
         pprhavg = int(rhavg.predict(plygrnd).round())
 
+        besok = sekarang + timedelta(days=1)
+        tanggalbesok = besok.strftime('%Y-%m-%d')
+
         return render_template('outplay.html',
                                tavg_out = pptavg,
                                tx_out = pptx,
-                               tn_out = pptn,)
+                               tn_out = pptn,
+                               tanggalbesok = tanggalbesok)
     else:
         return render_template('playground.html')
 
