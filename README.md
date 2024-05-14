@@ -7,4 +7,4 @@
 `$ python3 app.py`
 ## Files
 PPT: [https://tinyurl.com/2yrxcpdr](https://tinyurl.com/2yrxcpdr)
-Laporan: [https://tinyurl.com/3t5p8c25](https://tinyurl.com/3t5p8c25)
+Laporan: [https://tinyurl.com/ya5tskse](https://tinyurl.com/ya5tskse)
