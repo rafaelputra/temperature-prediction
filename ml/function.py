@@ -237,7 +237,3 @@ predictions_5_days['Tn'] = predictions_5_days['Tn'].round().astype(int)
 predictions_5_days['Tx'] = predictions_5_days['Tx'].round().astype(int)
 predictions_5_days['Tavg'] = predictions_5_days['Tavg'].round(1)
 predictions_5_days['RH_avg'] = predictions_5_days['RH_avg'].round().astype(int)
-
-# Menampilkan prediksi 5 hari ke depan
-print(predictions_5_days)
-pritn(p)
