@@ -7,14 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     .glassmorphism-container {
-      backdrop-filter: blur(100px);
-      /* Adjust the blur effect as needed */
-      background-color: rgba(208, 208, 208, 0.374);
-      /* Adjust the background color and opacity as needed */
-      border-radius: 10px;
+      background: rgba(176, 176, 176, 0.25);
       box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-      /* Adjust shadow as needed */
+      backdrop-filter: blur(14.5px);
+      -webkit-backdrop-filter: blur(14.5px);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
     }
+
     .animated-background {
       background: linear-gradient(313deg, #ffe2a9, #6ce7f9, #aae1ff, #0086f0);
       background-size: 800% 800%;
@@ -71,9 +71,12 @@
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;1,500&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;1,500&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
 </head>
+
 <body class="animated-background font-[Montserrat]">
   <nav class="p-2 mt-4 mx-4 rounded-xl bg-[#F0FEFF] shadow-2xl md:flex md:items-center md:justify-between">
     <div class="flex justify-between items-center ">
@@ -149,8 +152,8 @@
       <div class="w-full relative align-left text-left items-left md:w-1/2 px-3 mb-6 md:mb-0">
         <div class="md:w-1/3"></div>
         <button
-          class="glassmorphism-container shadow-lg block w-[100px] text-black-500 rounded-xl py-3 px-4 mb-3 hover:shadow-inner type="
-          button" name="submit">
+          class="glassmorphism-container shadow-lg block w-[100px] text-black-500 rounded-xl py-3 px-4 mb-3 hover:shadow-inner "
+          type="button" name="submit">
           Submit
         </button>
       </div>

@@ -131,23 +131,27 @@ humiditas = backtestrh(parameter, rhavg, predictors)
 
 # import required modules
 import firebase_admin
-from datetime import date
 from firebase_admin import db, credentials
+from datetime import date
+
 
 # authenticate to firebase
 cred = credentials.Certificate("temprh-36591-firebase-adminsdk-6qoor-9ae6252178.json")
 firebase_admin.initialize_app(cred, {"databaseURL": "https://temprh-36591-default-rtdb.asia-southeast1.firebasedatabase.app/"})
 
-inTmin = db.reference('/DHT_11/Stats/TempMin')
-inTmax = db.reference('/DHT_11/Stats/TempMax')
-inTavg = db.reference('/DHT_11/Stats/TempAverage')
-inRhavg = db.reference('/DHT_11/Stats/HumAverage')
+intmin = db.reference('/DHT_11/Stats/TempMin')
+inTmin = intmin.get()
+intmax = db.reference('/DHT_11/Stats/TempMax')
+inTmax = intmax.get()
+intavg = db.reference('/DHT_11/Stats/TempAverage')
+inTavg = intavg.get()
+inrhavg = db.reference('/DHT_11/Stats/HumAverage')
+inRhavg = inrhavg.get()
 tanggal = date.today()
-# Read data from the database
-data = ref.get()
+
 
 # Print the retrieved data
-print(data)
+print(inTavg)
 
 
 

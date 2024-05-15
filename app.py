@@ -50,7 +50,7 @@ def main():
     tanggal_h6 = data_hari[6]['tanggal']
 
     # Render template HTML dan kirimkan data hari
-    tavgh = inTavg
+    tavgh = int(round(inTavg,0))
 
     tavgh1 = prediksi_besok['Tavg'].iloc[0]
     tavgh2 = predictions_5_days['Tavg'].iloc[0]
@@ -60,14 +60,14 @@ def main():
     tavgh6 = predictions_5_days['Tavg'].iloc[4]
 
 
-    tmin_h = inTmin
+    tmin_h = int(round(inTmin,0))
     tmin_h1 = prediksi_besok['Tn'].iloc[0]
     tmin_h2 = predictions_5_days['Tn'].iloc[0]
     tmin_h3 = predictions_5_days['Tn'].iloc[1]
     tmin_h4 = predictions_5_days['Tn'].iloc[2]
     tmin_h5 = predictions_5_days['Tn'].iloc[3]
     tmin_h6 = predictions_5_days['Tn'].iloc[4]
-    tmax_h = inTmax
+    tmax_h = int(round(inTmax,0))
     tmaxh1 = prediksi_besok['Tx'].iloc[0]
     tmaxh2 = predictions_5_days['Tx'].iloc[0]
     tmaxh3 = predictions_5_days['Tx'].iloc[1]
