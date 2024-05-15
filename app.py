@@ -69,18 +69,18 @@ def main():
     """
     tmin_h = inTmin
     tmin_h1 = prediksi_besok['Tn'].iloc[0]
-    #tmin_h2 = 
-    #tmin_h3 = 
-    #tmin_h4 = 
-    #tmin_h5 = 
-    #tmin_h6 = 
+    tmin_h2 = predictions_5_days['Tn'].iloc[0]
+    tmin_h3 = predictions_5_days['Tn'].iloc[1]
+    tmin_h4 = predictions_5_days['Tn'].iloc[2]
+    tmin_h5 = predictions_5_days['Tn'].iloc[3]
+    tmin_h6 = predictions_5_days['Tn'].iloc[4]
     tmax_h = inTmax
     tmax_h1 = prediksi_besok['Tx'].iloc[0]
-    #tmax_h2 = 
-    #tmax_h3 = 
-    #tmax_h4 = 
-    #tmax_h5 = 
-    #tmax_h6 = 
+    tmax_h2 = predictions_5_days['Tx'].iloc[0]
+    tmax_h3 = predictions_5_days['Tx'].iloc[1]
+    tmax_h4 = predictions_5_days['Tx'].iloc[2]
+    tmax_h5 = predictions_5_days['Tx'].iloc[3]
+    tmax_h6 = predictions_5_days['Tx'].iloc[4]
     
 
     return render_template('index.html', 
@@ -107,13 +107,18 @@ def main():
                            tavg_h6=tavgh6,
                            tmin_h=tmin_h,
                            tmin_h1=tmin_h1,
+                           tmin_h2=tmin_h2,
+                           tmin_h3=tmin_h3,
+                           tmin_h4=tmin_h4,
+                           tmin_h5=tmin_h5,
+                           tmin_h6=tmin_h6,
                            tmax_h=tmax_h,
-                           tmax_h1=tmax_h1)
-                           #tmin_h2=tmin_h2,
-                           #tmin_h3=tmin_h3,
-                           #tmin_h4=tmin_h4,
-                           #tmin_h5=tmin_h5,
-                           #tmin_h6=tmin_h6
+                           tmax_h1=tmax_h1,
+                           tmax_h2=tmax_h2,
+                           tmax_h3=tmax_h3,
+                           tmax_h4=tmax_h4,
+                           tmax_h5=tmax_h5,
+                           tmax_h6=tmax_h6)
 
 @app.route('/about')
 def about():
