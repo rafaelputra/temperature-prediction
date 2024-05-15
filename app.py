@@ -67,6 +67,7 @@ def main():
     tmin_h4 = predictions_5_days['Tn'].iloc[2]
     tmin_h5 = predictions_5_days['Tn'].iloc[3]
     tmin_h6 = predictions_5_days['Tn'].iloc[4]
+<<<<<<< HEAD
     tmax_h = int(round(inTmax,0))
     tmaxh1 = prediksi_besok['Tx'].iloc[0]
     tmaxh2 = predictions_5_days['Tx'].iloc[0]
@@ -74,6 +75,15 @@ def main():
     tmaxh4 = predictions_5_days['Tx'].iloc[2]
     tmaxh5 = predictions_5_days['Tx'].iloc[3]
     tmaxh6 = predictions_5_days['Tx'].iloc[4]
+=======
+    tmax_h = inTmax
+    tmax_h1 = prediksi_besok['Tx'].iloc[0]
+    tmax_h2 = predictions_5_days['Tx'].iloc[0]
+    tmax_h3 = predictions_5_days['Tx'].iloc[1]
+    tmax_h4 = predictions_5_days['Tx'].iloc[2]
+    tmax_h5 = predictions_5_days['Tx'].iloc[3]
+    tmax_h6 = predictions_5_days['Tx'].iloc[4]
+>>>>>>> 12b29d52ab0c41edda60946603f7b1dbbfb779d2
     
 
     return render_template('index.html', 
@@ -100,7 +110,13 @@ def main():
                            tavg_h6=tavgh6,
                            tmin_h=tmin_h,
                            tmin_h1=tmin_h1,
+                           tmin_h2=tmin_h2,
+                           tmin_h3=tmin_h3,
+                           tmin_h4=tmin_h4,
+                           tmin_h5=tmin_h5,
+                           tmin_h6=tmin_h6,
                            tmax_h=tmax_h,
+<<<<<<< HEAD
                            tmax_h1=tmaxh1,
                            tmin_h2=tmin_h2,
                            tmin_h3=tmin_h3,
@@ -113,6 +129,14 @@ def main():
                            tmax_h5=tmaxh5,
                            tmax_h6=tmaxh6,)
 
+=======
+                           tmax_h1=tmax_h1,
+                           tmax_h2=tmax_h2,
+                           tmax_h3=tmax_h3,
+                           tmax_h4=tmax_h4,
+                           tmax_h5=tmax_h5,
+                           tmax_h6=tmax_h6)
+>>>>>>> 12b29d52ab0c41edda60946603f7b1dbbfb779d2
 
 @app.route('/about')
 def about():
@@ -132,14 +156,10 @@ def playground():
         pptavg = int(tavg.predict(plygrnd).round())
         pprhavg = int(rhavg.predict(plygrnd).round())
 
-        besok = sekarang + timedelta(days=1)
-        tanggalbesok = besok.strftime('%Y-%m-%d')
-
         return render_template('outplay.html',
                                tavg_out = pptavg,
                                tx_out = pptx,
-                               tn_out = pptn,
-                               tanggalbesok = tanggalbesok)
+                               tn_out = pptn)
     else:
         return render_template('playground.html')
 
