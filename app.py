@@ -138,14 +138,10 @@ def playground():
         pptavg = int(tavg.predict(plygrnd).round())
         pprhavg = int(rhavg.predict(plygrnd).round())
 
-        besok = sekarang + timedelta(days=1)
-        tanggalbesok = besok.strftime('%Y-%m-%d')
-
         return render_template('outplay.html',
                                tavg_out = pptavg,
                                tx_out = pptx,
-                               tn_out = pptn,
-                               tanggalbesok = tanggalbesok)
+                               tn_out = pptn)
     else:
         return render_template('playground.html')
 
