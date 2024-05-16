@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+  <style>
+    .glassmorphism-container {
+      backdrop-filter: blur(100px);
+      background-color: rgba(208, 208, 208, 0.374);
+      border-radius: 10px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    }
+
+    .animated-background {
+      background: linear-gradient(313deg, #ffe2a9, #6ce7f9, #aae1ff, #0086f0);
+      background-size: 800% 800%;
+
+      -webkit-animation: sunsetscheme 37s ease infinite;
+      -moz-animation: sunsetscheme 37s ease infinite;
+      animation: sunsetscheme 37s ease infinite;
+    }
+
+    @-webkit-keyframes sunsetscheme {
+      0% {
+        background-position: 0% 7%
+      }
+
+      50% {
+        background-position: 100% 94%
+      }
+
+      100% {
+        background-position: 0% 7%
+      }
+    }
+
+    @-moz-keyframes sunsetscheme {
+      0% {
+        background-position: 0% 7%
+      }
+
+      50% {
+        background-position: 100% 94%
+      }
+
+      100% {
+        background-position: 0% 7%
+      }
+    }
+
+    @keyframes sunsetscheme {
+      0% {
+        background-position: 0% 7%
+      }
+
+      50% {
+        background-position: 100% 94%
+      }
+
+      100% {
+        background-position: 0% 7%
+      }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;1,500&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+</head>
+<body class="animated-background font-[Montserrat]">
+    <nav class="p-2 mt-4 mx-4 rounded-xl bg-[#F0FEFF] shadow-2xl md:flex md:items-center md:justify-between">
+      <div class="flex justify-between items-center ">
+        <span class="text-2xl cursor-pointer">
+          <h1 class="h-10 inline ml-2">
+            <a href="/" class="font-[Alegreya] text-3xl">Temperature Prediction</a>
+          </h1>
+        </span>
+        <span class="text-3xl cursor-pointer mx-2 md:hidden block">
+          <ion-icon name="menu" onclick="Menu(this)"></ion-icon>
+        </span>
+      </div>
+      <ul
+        class="md:flex md:items-center md:static shadow-2xl absolute md:z-auto rounded-md py-2 md:py-0 md:pl-0 md:opacity-100 opacity-0 top-[-200px] bg-[#F0FEFF]">
+        <li class="mx-3 my-2 md:my-0">
+          <a href="/playground" class="text-2xl hover:bg-[#C2EBFD] hover:rounded-xl font-[Alegreya]">Playground</a>
+        </li>
+        <li class="mx-3 my-2 md:my-0">
+          <a href="/about" class="text-2xl hover:bg-[#C2EBFD] hover:rounded-xl font-[Alegreya]">About</a>
+        </li>
+      </ul>
+    </nav>
+    <script>
+      function Menu(e) {
+        let list = document.querySelector('ul');
+        e.name === 'menu' ? (e.name = "close", list.classList.add('top-[70px]'), list.classList.add('right-4'), list.classList.add('opacity-100')) : (e.name = "menu", list.classList.remove('top-[70px]'), list.classList.remove('left-4'), list.classList.remove('opacity-100'))
+      }
+    </script>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

@@ -1,8 +1,11 @@
+# Import library
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.linear_model import Ridge
-from datetime import datetime
+from datetime import datetime, date
+import firebase_admin
+from firebase_admin import db, credentials
 
 # Import dataset serta mengatur index pada kolom Tanggal
 df = pd.read_csv('https://drive.google.com/uc?export=view&id=1SbNCFBEHhLQHEzXlpAlRYhBOjwvcUNKi',index_col='Tanggal')
@@ -129,16 +132,11 @@ maksimum = backtesttx(parameter, tx, predictors)
 rata = backtesttavg(parameter, tavg, predictors)
 humiditas = backtestrh(parameter, rhavg, predictors)
 
-# import required modules
-import firebase_admin
-from firebase_admin import db, credentials
-from datetime import date
-
-
-# authenticate to firebase
+# Mengautentikasi firebase
 cred = credentials.Certificate("temprh-36591-firebase-adminsdk-6qoor-9ae6252178.json")
 firebase_admin.initialize_app(cred, {"databaseURL": "https://temprh-36591-default-rtdb.asia-southeast1.firebasedatabase.app/"})
 
+# Mengambil data dari firebase
 intmin = db.reference('/DHT_11/Stats/TempMin')
 inTmin = intmin.get()
 intmax = db.reference('/DHT_11/Stats/TempMax')
@@ -149,78 +147,7 @@ inrhavg = db.reference('/DHT_11/Stats/HumAverage')
 inRhavg = inrhavg.get()
 tanggal = date.today()
 
-
-# Print the retrieved data
-print(inTavg)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-"""
-# Import API BMKG untuk wilayah Semarang
-bmkg_api = pd.read_json('https://cuaca-gempa-rest-api.vercel.app/weather/jawa-tengah/semarang')
-
-# Ambil tanggal dari BMKG 
-tanggal = bmkg_api['data']['params'][0]['times'][0]['datetime']
-
-# Hapus bagian tanggal dari BMKG
-tanggal = tanggal[:-4]
-
-# Ubah format menjadi datetime
-tanggal = datetime.strptime(str(tanggal), '%Y%m%d')
-tanggal = tanggal.date()
-
-# Ambil humiditas dari BMKG
-malem12 = bmkg_api['data']['params'][0]['times'][0]['value']
-malem12 = malem12.replace("%", "")
-pagi6 = bmkg_api['data']['params'][0]['times'][1]['value']
-pagi6 = pagi6.replace("%", "")
-siang12 = bmkg_api['data']['params'][0]['times'][2]['value']
-siang12 = siang12.replace("%", "")
-sore18 = bmkg_api['data']['params'][0]['times'][3]['value']
-sore18 = sore18.replace("%", "")
-
-# Hitung rata-rata humiditas dari BMKG
-inRhavg = int((int(malem12)+int(pagi6)+int(siang12)+int(sore18))/4)
-
-# Hitung rata-rata suhu
-inTavg = bmkg_api['data']['params'][5]['times']
-malem12 = inTavg[0]["celcius"]
-malem12 = malem12.replace("C", "")
-pagi6 = inTavg[1]["celcius"]
-pagi6 = pagi6.replace("C", "")
-siang12 = inTavg[2]["celcius"]
-siang12 = siang12.replace("C", "")
-sore18 = inTavg[3]["celcius"]
-sore18 = sore18.replace("C", "")
-inTavg = (int(malem12)+int(pagi6)+int(siang12)+int(sore18))/4
-inTavg = round(inTavg)
-
-# Ambil suhu maksimal dari BMKG
-inTmax = bmkg_api['data']['params'][2]['times'][0]['celcius']
-inTmax = inTmax.replace("C", "")
-inTmax = int(inTmax)
-
-# Ambil suhu minimal dari BMKG
-inTmin = bmkg_api['data']['params'][4]['times'][0]['celcius']
-inTmin = inTmin.replace("C", "")
-inTmin = int(inTmin)
-"""
-
-# Semua parameter dari BMKG diubah menjadi DataFrame untuk membuat prediksi hari ini
+# Semua parameter dari firabase diubah menjadi DataFrame untuk membuat prediksi hari ini
 predictor_hari_ini = pd.DataFrame({'date': [tanggal],
                                    'tmin': [inTmin],
                                    'tmax': [inTmax],
@@ -244,14 +171,8 @@ predrhavg = int(round(predrhavg.item()))
 # Membuat DataFrame baru untuk menampung nilai prediksi besok
 prediksi_besok = pd.DataFrame([[tanggal, predtn, predtx, predtavg, predrhavg]], columns=['tanggal', 'Tn', 'Tx', 'Tavg', 'RH_avg'])
 
-#menampilkan hari ini
-tavg_h = inTavg
-print(tavg_h)
-
 #menampilkan prediksi besok
 tavg_h1 = prediksi_besok['Tavg'].iloc[0]
-print(tavg_h1)
-
 
 # Menginisialisasi DataFrame untuk menyimpan prediksi 5 hari ke depan
 predictions_5_days = pd.DataFrame(columns=['Tn', 'Tx', 'Tavg', 'RH_avg'])
@@ -283,11 +204,7 @@ for _ in range(5):
         predictions_5_days = new_prediction.copy()
 
 # Mengonversi nilai suhu menjadi integer
-
 predictions_5_days['Tn'] = predictions_5_days['Tn'].round().astype(int)
 predictions_5_days['Tx'] = predictions_5_days['Tx'].round().astype(int)
 predictions_5_days['Tavg'] = predictions_5_days['Tavg'].round().astype(int)
 predictions_5_days['RH_avg'] = predictions_5_days['RH_avg'].round().astype(int)
-
-# Menampilkan prediksi 5 hari ke depan
-print(rn)

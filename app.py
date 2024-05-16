@@ -1,3 +1,4 @@
+# Import library
 from flask import Flask, render_template, request
 import pandas as pd
 import numpy as np
@@ -5,6 +6,7 @@ from datetime import datetime, timedelta
 import pytz
 from ml.function import *
 
+# Inisialisasi Flask
 app = Flask(__name__)
 
 mapping_hari = {
@@ -17,6 +19,7 @@ mapping_hari = {
     'Sunday': 'Minggu'
 }
 
+# Mengubah zona waktu Indonesia
 indonesia = pytz.timezone('Asia/Jakarta')
 sekarang = datetime.now(indonesia)
 
@@ -49,9 +52,8 @@ def main():
     tanggal_h5 = data_hari[5]['tanggal']
     tanggal_h6 = data_hari[6]['tanggal']
 
-    # Render template HTML dan kirimkan data hari
+    # Mengambil nilai suhu rata-rata dari function
     tavgh = int(round(inTavg,0))
-
     tavgh1 = prediksi_besok['Tavg'].iloc[0]
     tavgh2 = predictions_5_days['Tavg'].iloc[0]
     tavgh3 = predictions_5_days['Tavg'].iloc[1]
@@ -59,7 +61,7 @@ def main():
     tavgh5 = predictions_5_days['Tavg'].iloc[3]
     tavgh6 = predictions_5_days['Tavg'].iloc[4]
 
-
+    # Mengambil nilai suhu minimum dari function
     tmin_h = int(round(inTmin,0))
     tminh1 = prediksi_besok['Tn'].iloc[0]
     tminh2 = predictions_5_days['Tn'].iloc[0]
@@ -68,6 +70,7 @@ def main():
     tminh5 = predictions_5_days['Tn'].iloc[3]
     tminh6 = predictions_5_days['Tn'].iloc[4]
 
+    # Mengambil nilai suhu maksimal dari function
     tmax_h = int(round(inTmax,0))
     tmaxh1 = prediksi_besok['Tx'].iloc[0]
     tmaxh2 = predictions_5_days['Tx'].iloc[0]
@@ -100,13 +103,14 @@ def main():
                            tavg_h5=tavgh5,
                            tavg_h6=tavgh6,
                            tmin_h=tmin_h,
-                           tmax_h=tmax_h,
-                           tmax_h1=tmaxh1,
+                           tmin_h1=tminh1,
                            tmin_h2=tminh2,
                            tmin_h3=tminh3,
                            tmin_h4=tminh4,
                            tmin_h5=tminh5,
                            tmin_h6=tminh6,
+                           tmax_h=tmax_h,
+                           tmax_h1=tmaxh1,
                            tmax_h2=tmaxh2,
                            tmax_h3=tmaxh3,
                            tmax_h4=tmaxh4,
@@ -120,25 +124,20 @@ def about():
     
 @app.route('/playground', methods=['GET', 'POST'])
 def playground():
-    if request.method == 'POST':   
+    if request.method == 'POST':
         suhu_min = int(request.form['suhu_min'])
         suhu_max = int(request.form['suhu_max'])
         suhu_avg = int(request.form['suhu_avg'])
         kelembapan = int(request.form['kelembapan'])
-
         plygrnd = pd.DataFrame([[suhu_min, suhu_max, suhu_avg, kelembapan]], columns=['Tn', 'Tx', 'Tavg', 'RH_avg'])
         pptn = int(tn.predict(plygrnd).round())
         pptx = int(tx.predict(plygrnd).round())
         pptavg = int(tavg.predict(plygrnd).round())
         pprhavg = int(rhavg.predict(plygrnd).round())
 
-        return render_template('outplay.html',
-                               tavg_out = pptavg,
-                               tx_out = pptx,
-                               tn_out = pptn)
+        return render_template('playground.html',tavg_out = pptavg, tx_out = pptx, tn_out = pptn)
     else:
         return render_template('playground.html')
-
 
 if __name__ == '__main__':
     app.run(debug=True, port=6969)
