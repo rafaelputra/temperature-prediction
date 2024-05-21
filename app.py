@@ -53,31 +53,38 @@ def main():
     tanggal_h6 = data_hari[6]['tanggal']
 
     # Mengambil nilai suhu rata-rata dari function
-    tavgh = int(round(inTavg,0))
-    tavgh1 = prediksi_besok['Tavg'].iloc[0]
-    tavgh2 = predictions_5_days['Tavg'].iloc[0]
-    tavgh3 = predictions_5_days['Tavg'].iloc[1]
-    tavgh4 = predictions_5_days['Tavg'].iloc[2]
-    tavgh5 = predictions_5_days['Tavg'].iloc[3]
-    tavgh6 = predictions_5_days['Tavg'].iloc[4]
+    tavgh = round(inTavg,1)
+    tavghdec = int((tavgh - int(tavgh))*10)
+    tavgh1 = prediksi_besok['Tavg'].iloc[0].round(1)
+    tavgh2 = predictions_5_days['Tavg'].iloc[0].round(1)
+    tavgh3 = predictions_5_days['Tavg'].iloc[1].round(1)
+    tavgh4 = predictions_5_days['Tavg'].iloc[2].round(1)
+    tavgh5 = predictions_5_days['Tavg'].iloc[3].round(1)
+    tavgh6 = predictions_5_days['Tavg'].iloc[4].round(1)
+    tavgh1dec = int((tavgh1 - int(tavgh1))*10)
+    tavgh2dec = int((tavgh2 - int(tavgh2))*10)
+    tavgh3dec = int((tavgh3 - int(tavgh3))*10)
+    tavgh4dec = int((tavgh4 - int(tavgh4))*10)
+    tavgh5dec = int((tavgh5 - int(tavgh5))*10)
+    tavgh6dec = int((tavgh6 - int(tavgh6))*10)
 
     # Mengambil nilai suhu minimum dari function
-    tmin_h = int(round(inTmin,0))
-    tminh1 = prediksi_besok['Tn'].iloc[0]
-    tminh2 = predictions_5_days['Tn'].iloc[0]
-    tminh3 = predictions_5_days['Tn'].iloc[1]
-    tminh4 = predictions_5_days['Tn'].iloc[2]
-    tminh5 = predictions_5_days['Tn'].iloc[3]
-    tminh6 = predictions_5_days['Tn'].iloc[4]
+    tmin_h = round(inTmin,1)
+    tminh1 = prediksi_besok['Tn'].iloc[0].round(1)
+    tminh2 = predictions_5_days['Tn'].iloc[0].round().astype(int)
+    tminh3 = predictions_5_days['Tn'].iloc[1].round().astype(int)
+    tminh4 = predictions_5_days['Tn'].iloc[2].round().astype(int)
+    tminh5 = predictions_5_days['Tn'].iloc[3].round().astype(int)
+    tminh6 = predictions_5_days['Tn'].iloc[4].round().astype(int)
 
     # Mengambil nilai suhu maksimal dari function
-    tmax_h = int(round(inTmax,0))
-    tmaxh1 = prediksi_besok['Tx'].iloc[0]
-    tmaxh2 = predictions_5_days['Tx'].iloc[0]
-    tmaxh3 = predictions_5_days['Tx'].iloc[1]
-    tmaxh4 = predictions_5_days['Tx'].iloc[2]
-    tmaxh5 = predictions_5_days['Tx'].iloc[3]
-    tmaxh6 = predictions_5_days['Tx'].iloc[4]
+    tmax_h = round(inTmax,1)
+    tmaxh1 = prediksi_besok['Tx'].iloc[0].round(1)
+    tmaxh2 = predictions_5_days['Tx'].iloc[0].round().astype(int)
+    tmaxh3 = predictions_5_days['Tx'].iloc[1].round().astype(int)
+    tmaxh4 = predictions_5_days['Tx'].iloc[2].round().astype(int)
+    tmaxh5 = predictions_5_days['Tx'].iloc[3].round().astype(int)
+    tmaxh6 = predictions_5_days['Tx'].iloc[4].round().astype(int)
     
 
     return render_template('index.html', 
@@ -96,12 +103,19 @@ def main():
                            tanggal_h5=tanggal_h5,
                            tanggal_h6=tanggal_h6,
                            tavg_h=tavgh,
+                           tavghdec = tavghdec,
                            tavg_h1=tavgh1,
                            tavg_h2=tavgh2,
                            tavg_h3=tavgh3,  
                            tavg_h4=tavgh4,
                            tavg_h5=tavgh5,
                            tavg_h6=tavgh6,
+                           tavgh1dec = tavgh1dec,
+                           tavgh2dec = tavgh2dec,
+                           tavgh3dec = tavgh3dec,
+                           tavgh4dec = tavgh4dec,
+                           tavgh5dec = tavgh5dec,
+                           tavgh6dec = tavgh6dec,
                            tmin_h=tmin_h,
                            tmin_h1=tminh1,
                            tmin_h2=tminh2,
