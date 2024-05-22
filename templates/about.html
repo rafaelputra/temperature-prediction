@@ -3,23 +3,29 @@
 {% block title %}About{% endblock %}
 
 {% block content %}
-    <article class="p-2 mt-6 mx-6 rounded-xl bg-[#D4E8FF] shadow">
-      <h1 class="text-2xl"><b>About</b></h1>
-      <h2><b>Nama Kelompok:</b></h2>
-      <ul class="p-4">
-        <li class="list-decimal">Rafael Putra A. (2304130094)</li>
-        <li class="list-decimal">Rifqy Tsaqif A. (2304130106)</li>
-        <li class="list-decimal">Fikri Achmad F. (2304130116)</li>
-        <li class="list-decimal">Muhammad Dany H. (2304130124)</li>
-        <li class="list-decimal">M. Khoirul Ihsan (2304130131)</li>
-      </ul>
-      <p class="text-justify">Proyek statistika kami menggunakan model <i>Ridge Regression</i> untuk memprediksi suhu berdasarkan dataset BMKG tahun 2017 hingga 2023 dari Kaggle untuk wilayah Kota Semarang, serta API BMKG untuk mendapatkan data-data yang berkaitan dengan cuaca pada hari ini untuk memprediksi satu minggu ke depan.</p>
-      <ul>
-        <li><b>Variabel dependen</b></li>
-        <p class="text-justify">Output dari model <i>machine learning</i> kami terdiri dari hari dan tanggal, suhu minimal, suhu maksimal, suhu rata-rata, dan kelembapan</p>
-        <li><b>Variabel independen</b></li>
-        <p class="text-justify">API BMKG sebagai variabel independen untuk memengaruhi model <i>machine learning</i> kami.</p>
-      </ul>
-      <img src="{{ url_for('static', filename='images/anime.png') }}" width="300" height="300" alt="ANIMEEKK" class="md:opacity-100 opacity-0 fixed right-[-4vh] top-[60vh] z-10">
-    </article>
+<article class="p-2 mt-6 mx-6 rounded-xl bg-[#D4E8FF] shadow">
+  <h1 class="text-2xl"><b>About</b></h1>
+  <h2><b>Nama Kelompok:</b></h2>
+  <ul class="p-4">
+    <li class="list-decimal">Rafael Putra A. (2304130094)</li>
+    <li class="list-decimal">Rifqy Tsaqif A. (2304130106)</li>
+    <li class="list-decimal">Fikri Achmad F. (2304130116)</li>
+    <li class="list-decimal">Muhammad Dany H. (2304130124)</li>
+    <li class="list-decimal">M. Khoirul Ihsan (2304130131)</li>
+  </ul>
+  <p class="text-justify">Proyek statistika kami menggunakan model <i>Ridge Regression</i> untuk memprediksi suhu
+    berdasarkan dataset BMKG tahun 2017 hingga 2023 dari Kaggle untuk wilayah Kota Semarang, serta API Firebase untuk
+    mendapatkan data-data yang berkaitan dengan cuaca pada hari ini untuk memprediksi satu minggu ke depan.</p>
+  <ul>
+    <li><b>Variabel dependen</b></li>
+    <p class="text-justify">Output dari model <i>machine learning</i> kami terdiri dari hari dan tanggal, suhu minimal,
+      suhu maksimal, suhu rata-rata, dan kelembapan</p>
+    <li><b>Variabel independen</b></li>
+    <p class="text-justify">API Firebase yang trkoneksi ke ESP32 dan sensor sebagai variabel independen untuk
+      memengaruhi model <i>machine learning</i>
+      kami.</p>
+  </ul>
+  <img src="{{ url_for('static', filename='images/anime.png') }}" width="300" height="300" alt="ANIMEEKK"
+    class="md:opacity-100 opacity-0 fixed right-[-4vh] top-[60vh] z-10">
+</article>
 {% endblock %}
